@@ -413,7 +413,7 @@ void menu_main() {
   #endif
 
   #if EITHER(LED_CONTROL_MENU, CASE_LIGHT_MENU)
-    SUBMENU(MSG_LEDS, menu_led);
+    // SUBMENU(MSG_LEDS, menu_led);
   #endif
 
   //
