@@ -2320,7 +2320,6 @@ void MarlinSettings::postprocess() {
           ubl.report_state();
 
           if (!ubl.sanity_check()) {
-            SERIAL_EOL();
             #if BOTH(EEPROM_CHITCHAT, DEBUG_LEVELING_FEATURE)
               ubl.echo_name();
               DEBUG_ECHOLNPGM(" initialized.\n");
@@ -3271,7 +3270,6 @@ void MarlinSettings::reset(const bool reset_probe_offset) {
         if (!forReplay) {
           SERIAL_EOL();
           ubl.report_state();
-          SERIAL_EOL();
           config_heading(false, PSTR("Active Mesh Slot: "), false);
           SERIAL_ECHOLN(ubl.storage_slot);
           config_heading(false, PSTR("EEPROM can hold "), false);
@@ -3891,7 +3889,7 @@ void MarlinSettings::reset(const bool reset_probe_offset) {
 
     #if HAS_MULTI_LANGUAGE
       CONFIG_ECHO_HEADING("UI Language:");
-      SERIAL_ECHO_MSG("  M414 S", ui.language);
+      CONFIG_ECHO_MSG("  M414 S", ui.language);
     #endif
   }
 
