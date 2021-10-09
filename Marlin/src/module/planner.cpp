@@ -142,7 +142,6 @@ float Planner::mm_per_step[DISTINCT_AXES];      // (mm) Millimeters per step
 
 #if HAS_JUNCTION_DEVIATION
   float Planner::junction_deviation_mm;         // (mm) M205 J
-  float Planner::junction_deviation_travel_mm;  
   #if HAS_LINEAR_E_JERK
     float Planner::max_e_jerk[DISTINCT_E];      // Calculated from junction_deviation_mm
   #endif
@@ -2582,7 +2581,7 @@ bool Planner::_populate_block(block_t * const block, bool split_move,
                     sin_theta_d2 = SQRT(0.5f * (1.0f - junction_cos_theta)); // Trig half angle identity. Always positive.
 
         vmax_junction_sqr = junction_acceleration * sin_theta_d2 / (1.0f - sin_theta_d2);
-        vmax_junction_sqr *= esteps ? junction_deviation_mm : junction_deviation_travel_mm;
+        vmax_junction_sqr *= junction_deviation_mm;
 
         #if ENABLED(JD_HANDLE_SMALL_SEGMENTS)
 
