@@ -138,6 +138,7 @@
 #define FIL_RUNOUT2_PIN                    P1_25  // E1DET
 
 #define FAN2_PIN                           P1_25
+#define FAN3_PIN                           P1_00
 
 //
 // Power Supply Control
