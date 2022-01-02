@@ -137,9 +137,6 @@
 #define FIL_RUNOUT_PIN                     P1_26  // E0DET
 #define FIL_RUNOUT2_PIN                    P1_25  // E1DET
 
-#define FAN2_PIN                           P1_25
-#define FAN3_PIN                           P1_00
-
 //
 // Power Supply Control
 //
@@ -509,3 +506,9 @@
 // Include common SKR pins
 //
 #include "pins_BTT_SKR_common.h"
+
+
+#define E_FAN_PIN                          P1_25
+#define CONTROLLER_FAN_PIN                 P1_00
+#undef FAN1_PIN
+#undef FAN2_PIN
