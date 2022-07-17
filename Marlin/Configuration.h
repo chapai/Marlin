@@ -502,7 +502,7 @@
 
 // Comment the following line to disable PID and enable bang-bang.
 #define PIDTEMP
-#define BANG_MAX 255     // Limits current to nozzle while in bang-bang mode; 255=full current
+#define BANG_MAX 100     // Limits current to nozzle while in bang-bang mode; 255=full current
 #define PID_MAX BANG_MAX // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 
@@ -520,9 +520,9 @@
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
 
-  #define DEFAULT_Kp 26.89
-  #define DEFAULT_Ki 3.51
-  #define DEFAULT_Kd 51.51
+  #define DEFAULT_Kp 9.46
+  #define DEFAULT_Ki 0.54
+  #define DEFAULT_Kd 41.34
 
   #endif
 #endif // PIDTEMP
@@ -811,7 +811,9 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 // #define DEFAULT_AXIS_STEPS_PER_UNIT { 2560 , 2560, 400, 830 } // 80,80
-#define DEFAULT_AXIS_STEPS_PER_UNIT { 80 , 80 , 400 , 415 } // 80,80
+//#define DEFAULT_AXIS_STEPS_PER_UNIT { 80 , 80 , 400 , 429 } // 80,80
+//LGX config below
+#define DEFAULT_AXIS_STEPS_PER_UNIT { 80 , 80 , 400 , 435 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -896,7 +898,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION
+//#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1068,13 +1070,13 @@
 #define PROBING_MARGIN 0
 
 // X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_FEEDRATE (110*60)
+#define XY_PROBE_FEEDRATE (150*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST (20*60)
+#define Z_PROBE_FEEDRATE_FAST (12*60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
-#define Z_PROBE_FEEDRATE_SLOW (12*60)
+#define Z_PROBE_FEEDRATE_SLOW (6*60)
 
 /**
  * Probe Activation Switch
